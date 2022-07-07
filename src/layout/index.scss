@@ -8,22 +8,20 @@
     width: 80%;
     display: flex;
     align-items: center;
-    li {
-      list-style: none;
-      padding: 0px 20px;
-      line-height: 3;
-      a {
+    div {
+      display: flex;
+      button {
+        width: 120px;
+        text-align: center;
+        justify-content: center;
         color: rgb(53, 53, 53);
+        border: 0px;
+        background-color: #fff;
         font-size: 16px;
-        text-decoration: none;
-        display: flex;
         margin-right: 8px;
         align-items: center;
+        line-height: 3;
       }
-    }
-    ul {
-      margin: 0px !important;
-      display: flex;
     }
   }
   .sign {
@@ -31,7 +29,6 @@
     width: 20%;
     a {
       color: rgb(53, 53, 53);
-
       text-decoration: none;
       padding: 0px 8px;
     }
@@ -39,15 +36,12 @@
       border-right: 3px solid #bbb;
     }
   }
-  li:hover {
-    background-color: #bbb;
-  }
   .logo {
-    padding: 0px 15px;
     margin-right: 80px;
   }
-  a:active {
-    color: rgb(53, 53, 53) !important;
+  .page-title button:hover,
+  .logo button:hover {
+    background-color: #bbb;
   }
 }
 
