@@ -1,0 +1,29 @@
+.team {
+  padding: 80px 40px 180px;
+  text-align: center;
+  .title {
+    margin-bottom: 40px;
+    h3 {
+      font-size: 28px;
+      font-weight: 400;
+      margin-bottom: 30px;
+    }
+  }
+  .team-data {
+    display: flex;
+    justify-content: space-around;
+  }
+  .contact {
+    text-align: center;
+    width: 150px;
+  }
+}
+.add {
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  padding: 100px 50px;
+  opacity: 0.8;
+  text-align: center;
+}

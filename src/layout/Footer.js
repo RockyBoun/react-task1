@@ -15,7 +15,7 @@ const Footer = () => {
         <ArrowUpwardIcon />
         To the top
       </Button>
-      <div>
+      <div className="icons">
         <FacebookIcon />
         <InstagramIcon />
         <NotificationsPausedIcon />

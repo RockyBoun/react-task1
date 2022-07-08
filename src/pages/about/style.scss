@@ -1,0 +1,26 @@
+.about {
+  padding: 130px 16px;
+  text-align: center;
+  h3 {
+    margin: 20px 0px 40px 0px;
+    font-weight: 400;
+    font-size: 24px;
+    text-align: center;
+  }
+  .company {
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-around;
+  }
+  .title {
+    font-size: 28px;
+    margin-top: 40px;
+  }
+  .item {
+    width: 20%;
+    margin: 10px;
+  }
+  .describe {
+    margin-top: 40px;
+  }
+}

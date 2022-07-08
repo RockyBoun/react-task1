@@ -1,0 +1,79 @@
+.ourwork {
+  padding: 80px 20px 180px;
+  text-align: center;
+  .title {
+    margin-bottom: 40px;
+    h3 {
+      font-size: 28px;
+      font-weight: 400;
+      margin-bottom: 30px;
+    }
+  }
+}
+.product {
+  img {
+    margin: 10px;
+    border-radius: 8px;
+    opacity: 1;
+  }
+  :hover {
+    opacity: 0.6;
+  }
+}
+.skills {
+  display: flex;
+  padding: 60px 0px;
+  background-color: #eee;
+  .describe {
+    width: 50%;
+    align-items: center;
+    padding: 80px;
+    h3 {
+      font-size: 28px;
+      margin-bottom: 30px;
+      font-weight: 400;
+    }
+    p {
+      margin-bottom: 20px;
+    }
+  }
+
+  .progress {
+    width: 50%;
+    .progress-item {
+      padding: 20px;
+      .progress1 {
+        background-color: #929292;
+        .progress-atr1 {
+          background-color: #616161;
+          text-align: center;
+          font-size: 16px;
+          padding: 6px;
+          width: 68%;
+          color: white;
+        }
+        .progress-atr2 {
+          background-color: #616161;
+          text-align: center;
+          font-size: 16px;
+          padding: 6px;
+          width: 78%;
+          color: white;
+        }
+        .progress-atr3 {
+          background-color: #616161;
+          width: 54%;
+          padding: 6px;
+          font-size: 16px;
+          text-align: center;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+.progress-item div:first-child {
+  display: flex;
+  margin-bottom: 12px;
+}

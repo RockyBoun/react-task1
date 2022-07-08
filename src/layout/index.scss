@@ -1,4 +1,7 @@
 .header {
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
   background-color: #fff;
   display: flex;
   align-items: center;
@@ -10,7 +13,9 @@
     align-items: center;
     div {
       display: flex;
-      button {
+      button,
+      a {
+        text-decoration: none;
         width: 120px;
         text-align: center;
         justify-content: center;
@@ -55,7 +60,10 @@
     color: black;
     margin-bottom: 20px;
   }
-  a {
+  .icons,
+  a,
+  div p {
+    margin: 10px;
     color: white;
   }
 }
