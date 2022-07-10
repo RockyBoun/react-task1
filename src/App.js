@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import SignupPage from "./pages/auth/signup";
 import LoginPage from "./pages/auth/login";
 import LandingPage from "./pages/LandingPage";
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         </Routes>
       </div>
       <Footer />
+      <ToastContainer />
     </div>
   );
 };

@@ -2,7 +2,6 @@ import * as React from "react";
 import {
   Avatar,
   Button,
-  TextField,
   FormControlLabel,
   Checkbox,
   Link,
@@ -15,24 +14,11 @@ import {
 } from "@mui/material";
 import EnhancedEncryptionIcon from "@mui/icons-material/EnhancedEncryption";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-
-const Copyright = (props) => {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {"Copyright © "}
-      <Link color="inherit" href="/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-};
+import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
+import Copyright from "../copyright";
+import { postApi } from "./../../../axios";
+import { toast } from "react-toastify";
+import "./../../../libs/toast.scss";
 
 const SignupPage = () => {
   const [signInfo, setSignInfo] = React.useState({
@@ -44,8 +30,14 @@ const SignupPage = () => {
   const onChange = (e) => {
     setSignInfo({ ...signInfo, [e.target.name]: e.target.value });
   };
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = () => {
+    postApi("/auth/signup", signInfo)
+      .then((res) => {
+        toast.success(res.data.message);
+      })
+      .catch((err) => {
+        toast.error(err.data.message);
+      });
   };
 
   return (
@@ -66,30 +58,33 @@ const SignupPage = () => {
         <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
           <LockOutlinedIcon />
         </Avatar>
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h5" sx={{ mb: 3 }}>
           Sign up
         </Typography>
-
-        <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+        <ValidatorForm
+          onSubmit={() => {
+            handleSubmit();
+          }}
+        >
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
-              <TextField
+              <TextValidator
+                validators={["required"]}
+                errorMessages={["This field is required!"]}
                 autoComplete="given-name"
                 name="firstName"
                 value={signInfo.firstName}
                 onChange={onChange}
-                required
                 fullWidth
-                id="firstName"
                 label="First Name"
                 autoFocus
               />
             </Grid>
             <Grid item xs={12} sm={6}>
-              <TextField
-                required
+              <TextValidator
+                validators={["required"]}
+                errorMessages={["This field is required!"]}
                 fullWidth
-                id="lastName"
                 label="Last Name"
                 name="lastName"
                 value={signInfo.lastName}
@@ -98,10 +93,10 @@ const SignupPage = () => {
               />
             </Grid>
             <Grid item xs={12}>
-              <TextField
-                required
+              <TextValidator
+                validators={["required"]}
+                errorMessages={["This field is required!"]}
                 fullWidth
-                id="email"
                 label="Email Address"
                 name="email"
                 value={signInfo.email}
@@ -110,8 +105,9 @@ const SignupPage = () => {
               />
             </Grid>
             <Grid item xs={12}>
-              <TextField
-                required
+              <TextValidator
+                validators={["required"]}
+                errorMessages={["asdThis field is required!"]}
                 fullWidth
                 name="password"
                 value={signInfo.password}
@@ -145,14 +141,14 @@ const SignupPage = () => {
           >
             Sign Up
           </Button>
-          <Grid container justifyContent="flex-end">
-            <Grid item>
-              <Link href="/login" variant="body2">
-                Already have an account? Sign in
-              </Link>
-            </Grid>
+        </ValidatorForm>
+        <Grid container justifyContent="flex-end">
+          <Grid item>
+            <Link href="/login" variant="body2">
+              Already have an account? Sign in
+            </Link>
           </Grid>
-        </Box>
+        </Grid>
       </Box>
       <Copyright sx={{ mt: 3, paddingBottom: 3 }} />
     </Container>

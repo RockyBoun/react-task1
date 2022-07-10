@@ -2,7 +2,6 @@ import * as React from "react";
 import {
   Avatar,
   Button,
-  TextField,
   FormControlLabel,
   Checkbox,
   Link,
@@ -13,33 +12,12 @@ import {
   Paper,
 } from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-
-function Copyright(props) {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {"Copyright © "}
-      <Link color="inherit" href="/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
+import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
+import Copyright from "../copyright";
 
 const LoginPage = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
   };
 
   return (
@@ -60,11 +38,11 @@ const LoginPage = () => {
         <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
           <LockOutlinedIcon />
         </Avatar>
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h5" sx={{ mb: 3 }}>
           Sign in
         </Typography>
-        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-          <TextField
+        <ValidatorForm onSubmit={handleSubmit}>
+          <TextValidator
             margin="normal"
             required
             fullWidth
@@ -74,7 +52,7 @@ const LoginPage = () => {
             autoComplete="email"
             autoFocus
           />
-          <TextField
+          <TextValidator
             margin="normal"
             required
             fullWidth
@@ -108,7 +86,7 @@ const LoginPage = () => {
               </Link>
             </Grid>
           </Grid>
-        </Box>
+        </ValidatorForm>
       </Box>
       <Copyright sx={{ mt: 3, paddingBottom: 3 }} />
     </Container>
